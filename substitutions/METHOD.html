@@ -1,0 +1,97 @@
+</p>
+<a name="fig5"></a>
+<style>
+  .colab-root {
+    display: inline-block;
+    background: rgba(255, 255, 255, 0.75);
+    padding: 4px 8px;
+    border-radius: 4px;
+    font-size: 11px !important;
+    text-decoration: none;
+    color: #aaa;
+    border: none;
+    font-weight: 300;
+    border: solid 1px rgba(0, 0, 0, 0.08);
+    border-bottom-color: rgba(0, 0, 0, 0.15);
+    text-transform: uppercase;
+    line-height: 16px
+  }
+
+  span.svelte-jc9cgl {
+    background-image: url(colab.svg);
+    background-repeat: no-repeat;
+    background-size: 20px;
+    background-position-y: 2px;
+    display: inline-block;
+    padding-left: 24px;
+    border-radius: 4px;
+    text-decoration: none
+  }
+
+  a.colab-root:hover {
+    color: #666;
+    background: white;
+    border-color: rgba(0, 0, 0, 0.2)
+  }
+</style>
+<span id="figure-number-aligned-interpolation-comparison"
+  class="figcaption kicker-text-align add-colab-link--section-aligned-interpolation"
+  style="grid-column: kicker; margin-top: 20px;">
+
+  <a href="https://colab.research.google.com/github/google-research/proteinfer/blob/master/colabs/Random_EC.ipynb"
+    class="colab-root">Reproduce in a <span class="svelte-jc9cgl">Notebook</span></a></span>
+<figure class="l-middle-outset" style="text-align:center">
+  <div id="group1">
+    Train-test split: <b id="clustered_link">random</b> / <button onclick="selectClusteredb()">clustered</button>
+    <div id="method_graph" style="height:25em;"></div>
+
+    <script type="text/javascript">window.addEventListener("resize", function () {
+      Plotly.Plots.resize(document.getElementById("method_graph"));
+    });</script>
+       <script type="text/javascript">window.addEventListener("resize", function () {
+        Plotly.Plots.resize(document.getElementById("method_graph2"));
+      });</script>
+
+    <figcaption class="captiontext" style="text-align:left"><a name="fig5">Figure 5:</a> ProteInfer predictions provide
+      highly precise predictions for EC number (random split), which complement BLAST-based predictions.</strong>
+      Plotting precision-recall curves for three methods of prediction reveals that single ProteInfer networks produce
+      highly precise predictions, at the expense of recall. Ensembling the predictions of multiple networks together
+      allows an increase in recall, though this is still lower than than provided by a BLAST-based search, with labels
+      applied from the top match. An ensemble of BLAST together with the ensembled predictions is largely able to
+      combine the recall of BLAST with the precision of the neural network predictions.
+    </figcaption>
+  </div>
+  <div id="group2" style="display: none;">
+    Train-test split: <button onclick="selectRandomb()">random</button> / <b>clustered</b>
+    <div id="method_graph2" style="height:25em;"></div>
+    <figcaption class="captiontext" style="text-align:left">This panel shows results for EC number prediction for an
+      alternative clustered split
+      which divides proteins into disjoint clusters according to UniRef50 membership. Reducing the sequence similarity
+      of
+      test and train sets in this way provides a closer analogue to a situation in which a relatively novel protein
+      sequence is being characterized, and compromises the recall of ProteInfer to a greater extent than BLAST search.
+      This is an illustration of the sensitivity of neural networks to disjoint train and test distributions.
+    </figcaption>
+  </div>
+  <style>
+    .selected_link {
+      font-weight: bold;
+    }
+
+    .unselected_link {
+      font-weight: 300;
+    }
+  </style>
+
+  <script src="scripts/method.js">
+
+  </script>
+</figure>
+<script type="text/javascript">window.addEventListener("resize", function () {
+    Plotly.Plots.resize(document.getElementById("train_egs"));
+  });</script>
+<style>
+  #train_egs .modebar-container {
+    display: none
+  }
+</style>
